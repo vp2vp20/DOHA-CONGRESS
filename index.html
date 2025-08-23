@@ -1,0 +1,985 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Doha Deadlock: IP and Climate Change Congress</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #1a5276;
+            --secondary: #27ae60;
+            --accent: #e74c3c;
+            --light: #f5f5f5;
+            --dark: #2c3e50;
+            --gray: #7f8c8d;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f9f9f9;
+        }
+        
+        h1, h2, h3, h4, h5 {
+            font-family: 'Merriweather', serif;
+            margin-bottom: 1rem;
+            color: var(--dark);
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, var(--primary), #2c3e50);
+            color: white;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo h1 {
+            font-size: 1.5rem;
+            color: white;
+            margin: 0;
+        }
+        
+        .logo span {
+            font-weight: 300;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 1.5rem;
+        }
+        
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+            padding: 0.5rem 0;
+            position: relative;
+        }
+        
+        nav ul li a:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: white;
+            transition: width 0.3s;
+        }
+        
+        nav ul li a:hover:after {
+            width: 100%;
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1611273426858-450d8e3c9fce?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80') no-repeat center center/cover;
+            color: white;
+            padding: 6rem 0;
+            text-align: center;
+        }
+        
+        .hero h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: white;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto 2rem;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: var(--secondary);
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn:hover {
+            background: #219653;
+            transform: translateY(-2px);
+        }
+        
+        .btn-outline {
+            background: transparent;
+            border: 2px solid white;
+            color: white;
+            margin-left: 1rem;
+        }
+        
+        .btn-outline:hover {
+            background: white;
+            color: var(--primary);
+        }
+        
+        /* Quick Access Buttons */
+        .quick-access {
+            padding: 3rem 0;
+            background: white;
+        }
+        
+        .access-buttons {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .access-btn {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            text-decoration: none;
+            color: var(--dark);
+            transition: all 0.3s;
+            text-align: center;
+        }
+        
+        .access-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+            color: var(--primary);
+        }
+        
+        .access-btn i {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+        
+        .access-btn span {
+            font-weight: 500;
+        }
+        
+        .access-btn p {
+            margin-top: 0.5rem;
+            font-size: 0.9rem;
+            color: var(--gray);
+        }
+        
+        /* Congress Info */
+        .congress-info {
+            padding: 4rem 0;
+            background: var(--light);
+        }
+        
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .info-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+        
+        .info-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .info-card-header {
+            background: var(--primary);
+            color: white;
+            padding: 1rem;
+            text-align: center;
+        }
+        
+        .info-card-body {
+            padding: 1.5rem;
+        }
+        
+        /* Video Section */
+        .video-section {
+            padding: 4rem 0;
+            background: white;
+        }
+        
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            max-width: 100%;
+            margin: 2rem auto;
+            border-radius: 8px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        
+        /* Scientific Committee */
+        .committee {
+            padding: 4rem 0;
+            background: var(--light);
+        }
+        
+        .committee-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .member-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: transform 0.3s;
+        }
+        
+        .member-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .member-img {
+            width: 100%;
+            height: 200px;
+            background: var(--gray);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 4rem;
+        }
+        
+        .member-info {
+            padding: 1.5rem;
+        }
+        
+        .member-info h4 {
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+        
+        .member-info p {
+            color: var(--gray);
+            font-style: italic;
+        }
+        
+        /* Program Section */
+        .program {
+            padding: 4rem 0;
+            background: white;
+        }
+        
+        .program-tabs {
+            display: flex;
+            flex-wrap: wrap;
+            margin-bottom: 2rem;
+            border-bottom: 2px solid var(--light);
+        }
+        
+        .program-tab {
+            padding: 1rem 1.5rem;
+            background: var(--light);
+            cursor: pointer;
+            margin-right: 0.5rem;
+            border-top-left-radius: 5px;
+            border-top-right-radius: 5px;
+            transition: all 0.3s;
+        }
+        
+        .program-tab.active {
+            background: var(--primary);
+            color: white;
+        }
+        
+        .program-content {
+            display: none;
+        }
+        
+        .program-content.active {
+            display: block;
+        }
+        
+        .program-item {
+            margin-bottom: 1.5rem;
+            padding: 1.5rem;
+            background: var(--light);
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .program-time {
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+        
+        .program-title {
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+        }
+        
+        /* Organizers Section */
+        .organizers {
+            padding: 4rem 0;
+            background: var(--light);
+        }
+        
+        .organizers-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .organizer-card {
+            background: white;
+            border-radius: 8px;
+            padding: 1.5rem;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 3rem 0 1rem;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-logo h3 {
+            color: white;
+            margin-bottom: 1rem;
+        }
+        
+        .footer-links h4 {
+            color: white;
+            margin-bottom: 1rem;
+        }
+        
+        .footer-links ul {
+            list-style: none;
+        }
+        
+        .footer-links ul li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .footer-links ul li a {
+            color: #ddd;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-links ul li a:hover {
+            color: white;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #aaa;
+            font-size: 0.9rem;
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            nav ul {
+                margin-top: 1rem;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            nav ul li {
+                margin: 0 0.5rem 0.5rem;
+            }
+            
+            .hero h2 {
+                font-size: 2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .btn-outline {
+                margin-left: 0;
+                margin-top: 1rem;
+            }
+            
+            .access-buttons {
+                grid-template-columns: 1fr;
+            }
+            
+            .program-tabs {
+                flex-direction: column;
+            }
+            
+            .program-tab {
+                margin-bottom: 0.5rem;
+                border-radius: 5px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .logo h1 {
+                font-size: 1.2rem;
+            }
+            
+            .hero {
+                padding: 4rem 0;
+            }
+            
+            .hero h2 {
+                font-size: 1.8rem;
+            }
+            
+            .info-grid, .committee-grid, .organizers-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <h1>The Doha <span>Deadlock</span></h1>
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#program">Program</a></li>
+                        <li><a href="#committee">Committee</a></li>
+                        <li><a href="#resources">Resources</a></li>
+                        <li><a href="#organizers">Organizers</a></li>
+                    </ul>
+                </nav>
+                <button class="mobile-menu-btn">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h2>International Congress</h2>
+            <p>The Doha Deadlock: Intellectual Property and Climate Change</p>
+            <p>Exploring the intersection of IP rights, innovation, and climate action</p>
+            <a href="#program" class="btn">View Program</a>
+            <a href="#resources" class="btn btn-outline">Download Materials</a>
+        </div>
+    </section>
+
+    <!-- Quick Access Buttons -->
+    <section class="quick-access" id="resources">
+        <div class="container">
+            <h2 class="text-center">Congress Resources</h2>
+            <div class="access-buttons">
+                <a href="#" class="access-btn" download="Congress_Program.pdf">
+                    <i class="fas fa-file-pdf"></i>
+                    <span>Congress Program</span>
+                    <p>Download the complete conference schedule</p>
+                </a>
+                <a href="#" class="access-btn" download="Event_Report.pdf">
+                    <i class="fas fa-clipboard-list"></i>
+                    <span>Event Report</span>
+                    <p>Comprehensive report of conference outcomes</p>
+                </a>
+                <a href="#" class="access-btn" download="Abstract_Book.pdf">
+                    <i class="fas fa-book"></i>
+                    <span>Abstract Book</span>
+                    <p>Collection of all research abstracts</p>
+                </a>
+                <a href="#" class="access-btn" download="Proceedings.pdf">
+                    <i class="fas fa-file-alt"></i>
+                    <span>Proceedings</span>
+                    <p>Full conference proceedings</p>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Congress Info -->
+    <section id="about" class="congress-info">
+        <div class="container">
+            <h2 class="text-center">About the Congress</h2>
+            <p class="text-center">This international congress brings together experts to discuss the complex relationship between intellectual property rights and climate change mitigation.</p>
+            
+            <div class="info-grid">
+                <div class="info-card">
+                    <div class="info-card-header">
+                        <h3>Congress Theme</h3>
+                    </div>
+                    <div class="info-card-body">
+                        <p>The Doha Declaration established important flexibilities in intellectual property law for public health. This congress explores whether similar flexibilities could be applied to climate technologies and green innovation.</p>
+                    </div>
+                </div>
+                
+                <div class="info-card">
+                    <div class="info-card-header">
+                        <h3>Key Topics</h3>
+                    </div>
+                    <div class="info-card-body">
+                        <ul>
+                            <li>IP barriers to climate technology transfer</li>
+                            <li>TRIPS flexibilities for climate change</li>
+                            <li>Green patent pools and licensing</li>
+                            <li>Innovation models for climate technologies</li>
+                            <li>Policy frameworks for technology sharing</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="info-card">
+                    <div class="info-card-header">
+                        <h3>Target Audience</h3>
+                    </div>
+                    <div class="info-card-body">
+                        <ul>
+                            <li>Intellectual property scholars</li>
+                            <li>Climate policy researchers</li>
+                            <li>Environmental technology developers</li>
+                            <li>International policy makers</li>
+                            <li>Legal practitioners in IP and environmental law</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Video Section -->
+    <section class="video-section">
+        <div class="container">
+            <h2 class="text-center">Climate Change: The Scientific Evidence</h2>
+            <p class="text-center">NASA's research on how we know Earth's climate is changing</p>
+            
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/IIA8n7KOc6I?rel=0" allowfullscreen></iframe>
+            </div>
+            
+            <p class="text-center">This video provides critical scientific context for the congress discussions on technology transfer for climate mitigation.</p>
+        </div>
+    </section>
+
+    <!-- Scientific Committee -->
+    <section id="committee" class="committee">
+        <div class="container">
+            <h2 class="text-center">Scientific Committee</h2>
+            <p class="text-center">Our committee consists of distinguished experts in intellectual property law, climate science, and technology policy.</p>
+            
+            <div class="committee-grid">
+                <div class="member-card">
+                    <div class="member-img">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="member-info">
+                        <h4>Prof. Elena Rodriguez</h4>
+                        <p>Chair, IP Law | University of Geneva</p>
+                    </div>
+                </div>
+                
+                <div class="member-card">
+                    <div class="member-img">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="member-info">
+                        <h4>Dr. James Wilson</h4>
+                        <p>Climate Policy | London School of Economics</p>
+                    </div>
+                </div>
+                
+                <div class="member-card">
+                    <div class="member-img">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="member-info">
+                        <h4>Prof. Mei Chen</h4>
+                        <p>Environmental Technology | Tsinghua University</p>
+                    </div>
+                </div>
+                
+                <div class="member-card">
+                    <div class="member-img">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="member-info">
+                        <h4>Dr. Ahmed Hassan</h4>
+                        <p>International Development | Cairo University</p>
+                    </div>
+                </div>
+                
+                <div class="member-card">
+                    <div class="member-img">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="member-info">
+                        <h4>Prof. Maria Lopez</h4>
+                        <p>IP and Innovation | Universidad de Buenos Aires</p>
+                    </div>
+                </div>
+                
+                <div class="member-card">
+                    <div class="member-img">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="member-info">
+                        <h4>Dr. Kenji Tanaka</h4>
+                        <p>Climate Technology | Kyoto University</p>
+                    </div>
+                </div>
+                
+                <div class="member-card">
+                    <div class="member-img">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="member-info">
+                        <h4>Prof. Olivia Brown</h4>
+                        <p>International Law | Harvard University</p>
+                    </div>
+                </div>
+                
+                <div class="member-card">
+                    <div class="member-img">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="member-info">
+                        <h4>Dr. Samuel Johnson</h4>
+                        <p>Technology Transfer | University of Cape Town</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 3rem;">
+                <h3>Conference Chair</h3>
+                <p><strong>Prof. Robert Schmidt</strong>, Director of Climate Innovation Center, Max Planck Institute</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Program Section -->
+    <section id="program" class="program">
+        <div class="container">
+            <h2 class="text-center">Congress Program</h2>
+            
+            <div class="program-tabs">
+                <div class="program-tab active" data-day="day1">Day 1: Foundations and Challenges</div>
+                <div class="program-tab" data-day="day2">Day 2: Solutions and Pathways</div>
+            </div>
+            
+            <div class="program-content active" id="day1-content">
+                <h3>Day 1: Foundations and Challenges</h3>
+                <p>Exploring the fundamental tensions between intellectual property protection and climate technology dissemination.</p>
+                
+                <div class="program-item">
+                    <div class="program-time">09:00 – 09:30</div>
+                    <div class="program-title">Opening Remarks and Welcome Ceremony</div>
+                </div>
+                
+                <div class="program-item">
+                    <div class="program-time">09:30 – 10:30</div>
+                    <div class="program-title">Keynote: Intellectual Property and Climate Imperatives</div>
+                    <p>Dr. Isabella Rossi, World Intellectual Property Organization</p>
+                </div>
+                
+                <div class="program-item">
+                    <div class="program-time">10:30 – 11:00</div>
+                    <div class="program-title">Coffee Break and Networking</div>
+                </div>
+                
+                <div class="program-item">
+                    <div class="program-time">11:00 – 12:30</div>
+                    <div class="program-title">Panel: Doha Round and the IP–Climate Deadlock</div>
+                    <p>Examining lessons from the Doha Declaration for climate technology transfer</p>
+                </div>
+                
+                <div class="program-item">
+                    <div class="program-time">12:30 – 14:00</div>
+                    <div class="program-title">Lunch Break</div>
+                </div>
+                
+                <div class="program-item">
+                    <div class="program-time">14:00 – 15:30</div>
+                    <div class="program-title">Scientific Presentations: Renewable Energy and Patent Barriers</div>
+                    <p>Case studies on solar, wind, and bioenergy technologies</p>
+                </div>
+                
+                <div class="program-item">
+                    <div class="program-time">15:30 – 16:00</div>
+                    <div class="program-title">Coffee Break</div>
+                </div>
+                
+                <div class="program-item">
+                    <div class="program-time">16:00 – 17:30</div>
+                    <div class="program-title">Roundtable: Access to Green Technologies and TRIPS Flexibilities</div>
+                    <p>Exploring compulsory licensing and other mechanisms for climate technologies</p>
+                </div>
+                
+                <div class="program-item">
+                    <div class="program-time">17:30 – 18:00</div>
+                    <div class="program-title">Summary and Closing of Day 1</div>
+                </div>
+            </div>
+            
+            <div class="program-content" id="day2-content">
+                <h3>Day 2: Solutions and Pathways</h3>
+                <p>Developing practical approaches to overcome IP barriers to climate technology transfer.</p>
+                
+                <div class="program-item">
+                    <div class="program-time">09:00 – 09:30</div>
+                    <div class="program-title">Recap of Day 1</div>
+                </div>
+                
+                <div class="program-item">
+                    <div class="program-time">09:30 – 10:30</div>
+                    <div class="program-title">Keynote: Balancing Innovation, IP, and Climate Action</div>
+                    <p>Prof. Michael Zhang, Stanford Law School</p>
+                </div>
+                
+                <div class="program-item">
+                    <div class="program-time">10:30 – 11:00</div>
+                    <div class="program-title">Coffee Break</div>
+                </div>
+                
+                <div class="program-item">
+                    <div class="program-time">11:00 – 12:30</div>
+                    <div class="program-title">Panel: Legal Tools for IP Flexibilities in Environmental Technologies</div>
+                    <p>Examining patent pools, open innovation, and technology partnerships</p>
+                </div>
+                
+                <div class="program-item">
+                    <div class="program-time">12:30 – 14:00</div>
+                    <div class="program-title">Lunch Break</div>
+                </div>
+                
+                <div class="program-item">
+                    <div class="program-time">14:00 – 15:30</div>
+                    <div class="program-title">Scientific Presentations: Case Studies on Technology Transfer</div>
+                    <p>Successful models of climate technology dissemination</p>
+                </div>
+                
+                <div class="program-item">
+                    <div class="program-time">15:30 – 16:00</div>
+                    <div class="program-title">Coffee Break</div>
+                </div>
+                
+                <div class="program-item">
+                    <div class="program-time">16:00 – 17:00</div>
+                    <div class="program-title">Workshop: Practical Mechanisms for Licensing Green Technologies</div>
+                    <p>Hands-on session developing licensing frameworks</p>
+                </div>
+                
+                <div class="program-item">
+                    <div class="program-time">17:00 – 17:45</div>
+                    <div class="program-title">Final Panel: Building a Collaborative Roadmap</div>
+                    <p>Synthesizing findings into policy recommendations</p>
+                </div>
+                
+                <div class="program-item">
+                    <div class="program-time">17:45 – 18:00</div>
+                    <div class="program-title">Closing Ceremony</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Organizers Section -->
+    <section id="organizers" class="organizers">
+        <div class="container">
+            <h2 class="text-center">Organizing Institutions</h2>
+            <p class="text-center">This congress is jointly organized by leading academic institutions with expertise in intellectual property, innovation, and climate policy.</p>
+            
+            <div class="organizers-grid">
+                <div class="organizer-card">
+                    <h3>EuroInnova Formation</h3>
+                </div>
+                <div class="organizer-card">
+                    <h3>Mondragon Unibertsitatea</h3>
+                </div>
+                <div class="organizer-card">
+                    <h3>International Valenciana University (VIU)</h3>
+                </div>
+                <div class="organizer-card">
+                    <h3>UNICYL Online University</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>The Doha Deadlock Congress</h3>
+                    <p>Advancing the dialogue on intellectual property and climate change.</p>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#about">About the Congress</a></li>
+                        <li><a href="#program">Program</a></li>
+                        <li><a href="#committee">Scientific Committee</a></li>
+                        <li><a href="#resources">Resources</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="#">Congress Program</a></li>
+                        <li><a href="#">Event Report</a></li>
+                        <li><a href="#">Abstract Book</a></li>
+                        <li><a href="#">Proceedings</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Contact</h4>
+                    <ul>
+                        <li>Email: info@dohadeadlockcongress.org</li>
+                        <li>Phone: +34 123 456 789</li>
+                        <li>Address: Barcelona, Spain</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>© 2023 The Doha Deadlock Congress. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Program Tabs
+        const programTabs = document.querySelectorAll('.program-tab');
+        const programContents = document.querySelectorAll('.program-content');
+        
+        programTabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                const target = tab.getAttribute('data-day');
+                
+                // Remove active class from all tabs and contents
+                programTabs.forEach(t => t.classList.remove('active'));
+                programContents.forEach(c => c.classList.remove('active'));
+                
+                // Add active class to clicked tab and corresponding content
+                tab.classList.add('active');
+                document.getElementById(`${target}-content`).classList.add('active');
+            });
+        });
+        
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const nav = document.querySelector('nav');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            nav.style.display = nav.style.display === 'flex' ? 'none' : 'flex';
+        });
+        
+        // Responsive adjustment for mobile menu
+        window.addEventListener('resize', () => {
+            if (window.innerWidth > 768) {
+                nav.style.display = 'flex';
+            } else {
+                nav.style.display = 'none';
+            }
+        });
+        
+        // Simulate download functionality
+        const downloadButtons = document.querySelectorAll('.access-btn');
+        
+        downloadButtons.forEach(button => {
+            button.addEventListener('click', (e) => {
+                e.preventDefault();
+                const documentType = button.querySelector('span').textContent;
+                alert(`In a production environment, this would download the ${documentType}`);
+                // In a real implementation, this would trigger a file download
+            });
+        });
+    </script>
+</body>
+</html>
