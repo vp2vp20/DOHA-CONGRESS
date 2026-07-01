@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FAQ Helpdesk &amp; Technical Protocols | IPR-CAD International Scientific Conference</title>
+<meta name="description" content="Comprehensive knowledge base and operational FAQ for the VII IPR-CAD International Scientific Conference. Guidelines for peer review, Crossref metadata integration, Doha Declaration tracks, and ORCID verification.">
+<meta name="keywords" content="IPR-CAD FAQ, academic helpdesk, submission protocols, Doha Declaration track, peer review timeline, Crossref registration, ORCID compliance, conference indexing, Scientia-Naturalis">
+<meta name="robots" content="index, follow">
+<meta property="og:title" content="FAQ Helpdesk &amp; Submission Protocols — IPR-CAD VII">
+<meta property="og:description" content="Resolve technical deployment questions regarding abstract tracking, identity validation, and proceeding publications.">
+<meta property="og:type" content="website">
+<link rel="canonical" href="https://ipr-cad.scientia-naturalis.org/faq.html">
+
+<!-- Autodiscovery Feeds & Search Engine Maps -->
+<link rel="alternate" type="application/rss+xml" title="IPR-CAD Live Updates Feed" href="rss.xml">
+<link rel="sitemap" type="application/xml" title="Sitemap" href="sitemap.xml">
+
+<!-- Structured Data for Google Rich Snippet FAQ Optimization -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://ipr-cad.scientia-naturalis.org/faq.html#webpage",
+      "url": "https://ipr-cad.scientia-naturalis.org/faq.html",
+      "name": "FAQ Helpdesk - IPR-CAD VII",
+      "description": "Technical and operational knowledge base detailing abstract validation, identity criteria, and digital asset persistence.",
+      "breadcrumb": {
+        "@type": "BreadcrumbList",
+        "itemListElement": [{
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://ipr-cad.scientia-naturalis.org"
+        },{
+          "@type": "ListItem",
+          "position": 2,
+          "name": "FAQ Helpdesk",
+          "item": "https://ipr-cad.scientia-naturalis.org/faq.html"
+        }]
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://ipr-cad.scientia-naturalis.org/faq.html#faq",
+      "isPartOf": {"@id": "https://ipr-cad.scientia-naturalis.org/faq.html#webpage"},
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Are individual ORCID iD credentials mandatory for all submitting researchers?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. To satisfy the data validation standards required by the Eurasian scientific council, every co-author must supply a valid, authenticated ORCID identifier during metadata submission to ensure long-term trace integrity."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How are conference abstracts and proceedings cross-referenced for academic visibility?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "All accepted inputs are programmatically indexed into the Crossref framework with persistent DOIs, mapped using Dublin Core architectures, and mirrored into open-access repositories under the Scientia-Naturalis ecosystem."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What structural alignment is required for the Doha Declaration track?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Submissions targeting this track must explicitly evaluate the interplay between public health flexibilities, international patent tracking systems, and modern digital asset sovereignty frameworks."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=JetBrains+Mono:wght@300;400;500&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+  /* ===== SHARED DESIGN SYSTEM CONSTANTS ===== */
+  :root {
+    --col-bg:        #0a0b0e;
+    --col-surface:   #0f1117;
+    --col-glass:     rgba(255,255,255,0.04);
+    --col-glass-hov: rgba(255,255,255,0.07);
+    --col-border:    rgba(255,255,255,0.08);
+    --col-border-md: rgba(255,255,255,0.14);
+    --col-gold:      #c9a96e;
+    --col-gold-dim:  rgba(201,169,110,0.12);
+    --col-teal:      #3ecfb0;
+    --col-teal-dim:  rgba(62,207,176,0.12);
+    --col-text-1:    #f0ede8;
+    --col-text-2:    #9a9590;
+    --col-text-3:    #5a5650;
+    --radius-sm:     8px;
+    --radius-md:     12px;
+    --radius-lg:     24px;
+    --ease:          cubic-bezier(0.23, 1, 0.32, 1);
+    --dur:           400ms;
+    --font-serif:    'Cormorant Garamond', Georgia, serif;
+    --font-mono:     'JetBrains Mono', monospace;
+    --font-sans:     'Outfit', system-ui, sans-serif;
+    --shadow-full:   0 1px 2px rgba(0,0,0,0.1), 0 4px 8px rgba(0,0,0,0.12), 0 16px 48px rgba(0,0,0,0.18);
+  }
+
+  /* ===== BASE SYSTEM WRAPPERS ===== */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--col-bg);
+    color: var(--col-text-1);
+    font-family: var(--font-sans);
+    font-weight: 300;
+    line-height: 1.8;
+    cursor: none;
+    overflow-x: hidden;
+  }
+  a { color: inherit; text-decoration: none; }
+
+  /* Custom Interactive Cursor Elements */
+  #cursor {
+    position: fixed; width: 28px; height: 28px; border: 1.5px solid var(--col-gold);
+    border-radius: 50%; pointer-events: none; z-index: 9999; transform: translate(-50%, -50%);
+    mix-blend-mode: screen; transition: width var(--dur) var(--ease), height var(--dur) var(--ease), border-color var(--dur) var(--ease);
+  }
+  #cursor.hover { width: 56px; height: 56px; border-color: var(--col-teal); opacity: 0.7; }
+  
+  #grain {
+    position: fixed; inset: 0; pointer-events: none; z-index: 1000; opacity: 0.035;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' /%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  /* ===== NAVIGATION & BREADCRUMBS ===== */
+  .container { max-width: 1280px; margin: 0 auto; padding: 0 32px; }
+  
+  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 500; padding: 0 32px; display: flex; align-items: center; justify-content: space-between; height: 72px; background: rgba(10,11,14,0.85); backdrop-filter: blur(20px); border-bottom: 0.5px solid var(--col-border); }
+  .nav-logo { display: flex; flex-direction: column; gap: 2px; }
+  .nav-logo-title { font-family: var(--font-serif); font-size: 1.25rem; font-weight: 500; letter-spacing: 0.05em; color: var(--col-gold); }
+  .nav-logo-sub { font-family: var(--font-mono); font-size: 0.6rem; letter-spacing: 0.15em; color: var(--col-text-3); text-transform: uppercase; }
+  .nav-links { display: flex; align-items: center; gap: 32px; list-style: none; }
+  .nav-links a { font-size: 0.8rem; font-weight: 400; letter-spacing: 0.06em; color: var(--col-text-2); text-transform: uppercase; transition: color var(--dur) var(--ease); }
+  .nav-links a:hover { color: var(--col-gold); }
+  .nav-links li { position: relative; }
+  .dropdown-menu { position: absolute; top: 100%; left: 50%; transform: translateX(-50%) translateY(10px); background: #0f1117; border: 0.5px solid var(--col-border-md); border-radius: var(--radius-sm); padding: 12px 0; min-width: 220px; list-style: none; opacity: 0; visibility: hidden; transition: all 0.3s var(--ease); box-shadow: var(--shadow-full); }
+  .nav-links li:hover .dropdown-menu { opacity: 1; visibility: visible; transform: translateX(-50%) translateY(0); }
+  .dropdown-menu a { display: block; padding: 8px 20px; font-size: 0.75rem; text-align: left; }
+  .dropdown-menu a:hover { background: var(--col-glass-hov); color: var(--col-gold); }
+
+  .breadcrumbs { display: flex; align-items: center; gap: 8px; list-style: none; margin-top: 104px; padding: 0 32px; }
+  .breadcrumbs li { font-family: var(--font-mono); font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--col-text-3); }
+  .breadcrumbs a { color: var(--col-text-2); transition: color 0.2s; }
+  .breadcrumbs a:hover { color: var(--col-gold); }
+  .breadcrumbs li::after { content: '/'; margin-left: 8px; color: var(--col-text-3); }
+  .breadcrumbs li:last-child::after { content: ''; }
+  .breadcrumbs li:last-child { color: var(--col-gold); font-weight: 500; }
+
+  /* ===== FAQ ENGINE ARCHITECTURE ===== */
+  .faq-layout { display: grid; grid-template-columns: 280px 1fr; gap: 64px; margin-top: 48px; margin-bottom: 96px; }
+  .faq-nav { position: sticky; top: 120px; height: max-content; }
+  .faq-nav-title { font-family: var(--font-mono); font-size: 0.75rem; text-transform: uppercase; color: var(--col-text-3); letter-spacing: 0.1em; margin-bottom: 16px; }
+  .faq-nav-list { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+  .faq-nav-item { font-size: 0.9rem; color: var(--col-text-2); cursor: pointer; transition: color 0.2s; display: flex; align-items: center; gap: 8px; }
+  .faq-nav-item:hover, .faq-nav-item.active { color: var(--col-gold); }
+  
+  .faq-group { margin-bottom: 56px; scroll-margin-top: 120px; }
+  .group-title { font-family: var(--font-serif); font-size: 1.8rem; font-weight: 400; color: var(--col-gold); margin-bottom: 24px; border-bottom: 0.5px solid var(--col-border); padding-bottom: 8px; }
+  
+  /* Accordion Design Pattern */
+  .faq-accordion { background: var(--col-glass); border: 0.5px solid var(--col-border); border-radius: var(--radius-md); margin-bottom: 16px; overflow: hidden; transition: border-color var(--dur) var(--ease); }
+  .faq-accordion:hover { border-color: rgba(251, 247, 240, 0.15); }
+  .faq-trigger { padding: 24px 32px; display: flex; justify-content: space-between; align-items: center; cursor: pointer; user-select: none; }
+  .faq-question { font-family: var(--font-sans); font-size: 1.05rem; font-weight: 400; color: var(--col-text-1); padding-right: 24px; }
+  .faq-icon { font-family: var(--font-mono); font-size: 1.1rem; color: var(--col-text-3); transition: transform 0.3s var(--ease); }
+  
+  .faq-panel { max-height: 0; overflow: hidden; transition: max-height 0.4s cubic-bezier(0.23, 1, 0.32, 1); background: rgba(0,0,0,0.15); }
+  .faq-content { padding: 0 32px 24px 32px; color: var(--col-text-2); font-size: 0.95rem; font-weight: 300; line-height: 1.7; }
+
+  /* Active Accordion State */
+  .faq-accordion.open { border-color: var(--col-gold-dim); background: rgba(255,255,255,0.05); }
+  .faq-accordion.open .faq-icon { transform: rotate(45deg); color: var(--col-gold); }
+
+  @media (max-width: 992px) { .faq-layout { grid-template-columns: 1fr; gap: 40px; } .faq-nav { display: none; } .breadcrumbs { margin-top: 96px; } .nav-links { display: none; } }
+</style>
+</head>
+<body>
+
+<div id="cursor"></div>
+<div id="grain"></div>
+
+<!-- ===== GLOBAL STICKY NAVIGATION BAR ===== -->
+<nav>
+  <div class="nav-logo">
+    <span class="nav-logo-title" style="cursor:pointer;" onclick="window.location.href='index.html'">IPR-CAD</span>
+    <span class="nav-logo-sub">Scientia-Naturalis.org · Est. 2019</span>
+  </div>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li>
+      <a href="#">Announcements ▾</a>
+      <ul class="dropdown-menu">
+        <li><a href="news.html">Latest News</a></li>
+        <li><a href="keynote-announced.html">Keynote Speakers</a></li>
+        <li><a href="advisory-board-expanded.html">Advisory Board</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="#">Resources ▾</a>
+      <ul class="dropdown-menu">
+        <li><a href="conference-proceedings.html">Conference Proceedings</a></li>
+        <li><a href="conference-resources.html">Academic Resources</a></li>
+        <li><a href="faq.html" style="color: var(--col-gold);">FAQ Cluster</a></li>
+      </ul>
+    </li>
+    <li><a href="registration-open.html" style="color: var(--col-teal);">Registration Open</a></li>
+  </ul>
+  <div>
+    <a href="registration-open.html" class="btn-primary" style="padding: 10px 20px; font-size: 0.8rem; border-radius:8px; font-weight:500; background: var(--col-gold); color: #0a0b0e; display: inline-block;">Register Portal →</a>
+  </div>
+</nav>
+
+<!-- ===== BREADCRUMBS ===== -->
+<ul class="breadcrumbs container">
+  <li><a href="index.html">Home</a></li>
+  <li>Resources</li>
+  <li>FAQ Helpdesk</li>
+</ul>
+
+<!-- ===== MAIN KNOWLEDGE BASE LAYOUT ===== -->
+<main class="container faq-layout">
+  
+  <!-- Sticky Structural Left Navigation -->
+  <aside class="faq-nav">
+    <div class="faq-nav-title">Cluster Anchors</div>
+    <ul class="faq-nav-list">
+      <li class="faq-nav-item active" onclick="document.getElementById('validation').scrollIntoView();">Identity Validation</li>
+      <li class="faq-nav-item" onclick="document.getElementById('proceedings').scrollIntoView();">Indexing &amp; DOI</li>
+      <li class="faq-nav-item" onclick="document.getElementById('doha').scrollIntoView();">Doha Alignment</li>
+    </ul>
+  </aside>
+
+  <!-- Right Interactive Target Columns -->
+  <section>
+    <div style="margin-bottom: 48px; max-width: 800px;">
+      <h1 style="font-family: var(--font-serif); font-size: clamp(2.2rem, 4vw, 3.8rem); font-weight: 300; line-height: 1.1; margin-bottom: 16px;">
+        Technical <em>Knowledge</em> Base
+      </h1>
+      <p style="color: var(--col-text-2); font-size: 1.05rem; font-weight: 300;">
+        Systemic directives regarding persistent indexing, legal matrix tracks, and author identity alignment.
+      </p>
+    </div>
+
+    <!-- Group 1: Identity Validation -->
+    <div id="validation" class="faq-group">
+      <h2 class="group-title">Author Identity Validation</h2>
+      
+      <div class="faq-accordion">
+        <div class="faq-trigger">
+          <span class="faq-question">Are individual ORCID iD credentials mandatory for all submitting researchers?</span>
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-panel">
+          <div class="faq-content">
+            Yes. To satisfy the metadata consistency benchmarks required by the Eurasian scientific council, every individual stakeholder must provide a valid, authenticated ORCID tracking sequence at point of submission to assure identity trace persistence.
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-accordion">
+        <div class="faq-trigger">
+          <span class="faq-question">Can metadata updates be processed post-verification?</span>
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-panel">
+          <div class="faq-content">
+            No modifications can be accepted once the peer-review layer commits the metadata to the Crossref registry interface. Double-check all institutional tracking parameters prior to submission signatures.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Group 2: Indexing -->
+    <div id="proceedings" class="faq-group">
+      <h2 class="group-title">Indexing &amp; DOI Metrics</h2>
+      
+      <div class="faq-accordion">
+        <div class="faq-trigger">
+          <span class="faq-question">How are conference abstracts and proceedings cross-referenced for academic visibility?</span>
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-panel">
+          <div class="faq-content">
+            All accepted inputs are programmatically structured via Dublin Core parameters into the Crossref ecosystem. Every output resolves natively via a dedicated high-impact digital object identifier (DOI).
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Group 3: Doha Alignment -->
+    <div id="doha" class="faq-group">
+      <h2 class="group-title">Doha Declaration Alignment</h2>
+      
+      <div class="faq-accordion">
+        <div class="faq-trigger">
+          <span class="faq-question">What structural alignment is required for the Doha Declaration track?</span>
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-panel">
+          <div class="faq-content">
+            Submissions targeting this specialized track must evaluate the structural friction points where international public health flexibilities intersect with modern algorithmic patent models or alternative structural resource distribution logic.
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </section>
+</main>
+
+<!-- ===== METADATA COMPLIANT FOOTER ===== -->
+<footer style="background: #0a0b0e; border-top: 0.5px solid rgba(255, 255, 255, 0.08); padding: 64px 32px 32px; font-family: 'Outfit', sans-serif;">
+  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 40px; max-width: 1280px; margin: 0 auto 48px;">
+    <div>
+      <div style="font-family: 'Cormorant Garamond', Georgia, serif; font-size: 1.3rem; color: #c9a96e; margin-bottom: 16px;">Scientia-Naturalis.org</div>
+      <p style="font-size: 0.85rem; color: #9a9590; line-height: 1.6; margin-bottom: 16px;">High-stakes academic engineering bridging the gap between scientific investigation, regulatory structures, and market deployment. Located in Berlin, Germany.</p>
+      <div style="display: inline-flex; background: rgba(255,255,255,0.05); border: 0.5px solid rgba(255,255,255,0.08); padding: 4px 12px; border-radius: 4px; font-family: monospace; font-size: 0.75rem; color: #9a9590;">
+        <span style="color: #c9a96e; margin-right: 8px; font-weight: bold;">ROR</span> https://ror.org/XXXX-XXXX
+      </div>
+    </div>
+    <div>
+      <div style="font-size: 0.8rem; font-weight: 500; text-transform: uppercase; color: #c9a96e; margin-bottom: 20px; letter-spacing: 0.08em;">Navigation Paths</div>
+      <ul style="list-style: none; padding: 0; margin: 0;">
+        <li style="margin-bottom: 10px;"><a href="index.html" style="font-size: 0.85rem; color: #9a9590;">Main Portal</a></li>
+        <li style="margin-bottom: 10px;"><a href="about.html" style="font-size: 0.85rem; color: #9a9590;">About Portal</a></li>
+        <li style="margin-bottom: 10px;"><a href="news.html" style="font-size: 0.85rem; color: #9a9590;">News Directory</a></li>
+        <li style="margin-bottom: 10px;"><a href="faq.html" style="font-size: 0.85rem; color: #9a9590;">FAQ Helpdesk</a></li>
+      </ul>
+    </div>
+    <div>
+      <div style="font-size: 0.8rem; font-weight: 500; text-transform: uppercase; color: #c9a96e; margin-bottom: 20px; letter-spacing: 0.08em;">Announcements</div>
+      <ul style="list-style: none; padding: 0; margin: 0;">
+        <li style="margin-bottom: 10px;"><a href="keynote-announced.html" style="font-size: 0.85rem; color: #9a9590;">Keynote Speakers</a></li>
+        <li style="margin-bottom: 10px;"><a href="advisory-board-expanded.html" style="font-size: 0.85rem; color: #9a9590;">Advisory Expansion</a></li>
+        <li style="margin-bottom: 10px;"><a href="conference-proceedings.html" style="font-size: 0.85rem; color: #9a9590;">Proceedings Index</a></li>
+        <li style="margin-bottom: 10px;"><a href="conference-resources.html" style="font-size: 0.85rem; color: #9a9590;">Resource Repositories</a></li>
+      </ul>
+    </div>
+    <div>
+      <div style="font-size: 0.8rem; font-weight: 500; text-transform: uppercase; color: #c9a96e; margin-bottom: 20px; letter-spacing: 0.08em;">Indexing Compliance</div>
+      <ul style="list-style: none; padding: 0; margin: 0;">
+        <li style="margin-bottom: 10px;"><a href="#" style="font-size: 0.85rem; color: #9a9590;">ORCID API Validator</a></li>
+        <li style="margin-bottom: 10px;"><a href="#" style="font-size: 0.85rem; color: #9a9590;">Crossref DOI Registry</a></li>
+        <li style="margin-bottom: 10px;"><a href="#" style="font-size: 0.85rem; color: #9a9590;">W3C VC Verification</a></li>
+        <li style="margin-bottom: 10px;"><a href="#" style="font-size: 0.85rem; color: #9a9590;">ISSN/ISBN Catalog</a></li>
+      </ul>
+    </div>
+  </div>
+  <div style="border-top: 0.5px solid rgba(255, 255, 255, 0.08); padding-top: 24px; max-width: 1280px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px;">
+    <span style="font-size: 0.75rem; color: #5a5650;">© 2026 Scientia-Naturalis.org. Developed for high-impact knowledge arbitrage. All rights reserved.</span>
+    <div style="display: flex; gap: 8px;">
+      <span style="background: rgba(255,255,255,0.05); color: #9a9590; border: 0.5px solid rgba(255,255,255,0.08); padding: 2px 8px; border-radius: 12px; font-size: 0.65rem; font-family: monospace;">DOI</span>
+      <span style="background: rgba(255,255,255,0.05); color: #9a9590; border: 0.5px solid rgba(255,255,255,0.08); padding: 2px 8px; border-radius: 12px; font-size: 0.65rem; font-family: monospace;">ORCID</span>
+      <span style="background: rgba(255,255,255,0.05); color: #9a9590; border: 0.5px solid rgba(255,255,255,0.08); padding: 2px 8px; border-radius: 12px; font-size: 0.65rem; font-family: monospace;">ROR</span>
+      <span style="background: rgba(255,255,255,0.05); color: #9a9590; border: 0.5px solid rgba(255,255,255,0.08); padding: 2px 8px; border-radius: 12px; font-size: 0.65rem; font-family: monospace;">W3C VC</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  /* Custom Cursor Logic */
+  const cursor = document.getElementById('cursor');
+  document.addEventListener('mousemove', e => { cursor.style.left = e.clientX + 'px'; cursor.style.top = e.clientY + 'px'; });
+  document.querySelectorAll('a, button, .faq-trigger, .faq-nav-item').forEach(el => {
+    el.addEventListener('mouseenter', () => cursor.classList.add('hover'));
+    el.addEventListener('mouseleave', () => cursor.classList.remove('hover'));
+  });
+
+  /* Interactive Accordion Engine */
+  document.querySelectorAll('.faq-trigger').forEach(trigger => {
+    trigger.addEventListener('click', () => {
+      const parent = trigger.parentElement;
+      const panel = trigger.nextElementSibling;
+      const isOpen = parent.classList.contains('open');
+      
+      // Close all open accordions within this view framework
+      document.querySelectorAll('.faq-accordion').forEach(acc => {
+        acc.classList.remove('open');
+        acc.querySelector('.faq-panel').style.maxHeight = null;
+      });
+
+      if (!isOpen) {
+        parent.classList.add('open');
+        panel.style.maxHeight = panel.scrollHeight + "px";
+      }
+    });
+  });
+
+  /* Scroll Navigation Active Tracker Indicators */
+  window.addEventListener('scroll', () => {
+    const groups = document.querySelectorAll('.faq-group');
+    const navItems = document.querySelectorAll('.faq-nav-item');
+    let current = '';
+
+    groups.forEach(group => {
+      const top = group.offsetTop;
+      if (pageYOffset >= top - 140) { current = group.getAttribute('id'); }
+    });
+
+    navItems.forEach((item, index) => {
+      item.classList.remove('active');
+      const targets = ['validation', 'proceedings', 'doha'];
+      if (targets[index] === current) { item.classList.add('active'); }
+    });
+  });
+</script>
+</body>
+</html>
