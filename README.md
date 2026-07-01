@@ -1,6 +1,41 @@
 # DOHA-CONGRESS
 
-In November 2001, Doha hosted trade talks over intellectual property and public health. The discussions resulted in the landmark Doha Declaration on the TRIPS Agreement and Public Health. The Doha Declaration recognised “that the TRIPS Agreement does not and should not prevent members from taking measures to protect public health” - particularly in relation to HIV/AIDS, tuberculosis, malaria and other epidemics.
+Search Engine Optimization
 
-More than a decade on, in December 2012, Doha hosted the international climate talks for parties to the United Nations Framework Convention on Climate Change 1992 and the Kyoto Protocol 1997. There was, once again, a contentious debate over intellectual property - this time in relation to clean technologies. The Climate Action Network argued that there should be a Declaration on Intellectual Property and Climate Change to facilitate the “rapid and efficient uptake of technologies to address mitigation and adaptation”.
-In this Congress , scientists and practitioners will bring the challenges 22 years later
+Each page will receive unique title unique description unique keywords canonical OG image JSON-LD breadcrumbs internal links structured heading hierarchy .Conference functionality
+
+I also recommend adding:
+
+Search page
+Speakers page
+Scientific Committee page
+Advisory Board page
+Important Dates page
+Downloads page
+Media Kit
+Newsroom
+Press Releases
+DOI Verification page
+ORCID Verification page
+Certificate Verification page
+Proceedings Archive
+Previous Editions
+Contact forms with validation
+Cookie consent banner (if required)
+XML feeds for search engines
+humans.txt (optional but useful for credits)
+Deliverables
+
+This is a substantial redevelopment project rather than a simple bug fix. Based on the size of your current index.html, I estimate the final codebase will comprise roughly:
+
+15–20 HTML pages
+2–3 CSS files
+4–6 JavaScript files
+1 sitemap.xml
+1 rss.xml
+1 robots.txt
+Complete JSON-LD schema markup
+Fully responsive design
+Working navigation across all pages
+SEO-ready metadata
+Validated HTML5 and CSS3
