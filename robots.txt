@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /assets/pdf/private-drafts/
+
+Sitemap: https://www.icrad-conference.org/sitemap.xml
