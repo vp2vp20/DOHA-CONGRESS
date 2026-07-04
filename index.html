@@ -72,43 +72,23 @@
     --shadow-full:   var(--shadow-a), var(--shadow-b), var(--shadow-c), var(--shadow-d), var(--shadow-e);
   }
 
-  /* ===== RESET ===== */
+  /* ===== RESET & BASE SYSTEM ===== */
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  html { scroll-behavior: smooth; }
+  html { scroll-behavior: smooth; font-size: 16px; }
   body {
     background: var(--col-bg);
     color: var(--col-text-1);
     font-family: var(--font-sans);
     font-weight: 300;
-    line-height: 1.8;
-    cursor: none;
+    line-height: 1.6;
     overflow-x: hidden;
+    -webkit-text-size-adjust: 100%;
   }
   a { color: inherit; text-decoration: none; }
-  img { display: block; max-width: 100%; }
+  img { display: block; max-width: 100%; height: auto; }
 
-  /* ===== CUSTOM CURSOR ===== */
-  #cursor {
-    position: fixed;
-    width: 28px; height: 28px;
-    border: 1.5px solid var(--col-gold);
-    border-radius: 50%;
-    pointer-events: none;
-    z-index: 9999;
-    transform: translate(-50%, -50%);
-    transition: width var(--dur) var(--ease),
-                height var(--dur) var(--ease),
-                border-color var(--dur) var(--ease),
-                filter var(--dur) var(--ease),
-                opacity var(--dur) var(--ease);
-    mix-blend-mode: screen;
-  }
-  #cursor.hover {
-    width: 56px; height: 56px;
-    filter: blur(2px);
-    border-color: var(--col-teal);
-    opacity: 0.7;
-  }
+  /* Desktop pointer overlay (Hidden entirely on tactile mobile/tablet screens) */
+  #cursor { display: none; }
 
   /* ===== NOISE GRAIN OVERLAY ===== */
   #grain {
@@ -129,53 +109,48 @@
     100% { background-position: 64px -32px; }
   }
 
-  /* ===== TYPOGRAPHY ===== */
+  /* ===== MOBILE FIRST TYPOGRAPHY ===== */
   .display-xl {
     font-family: var(--font-serif);
-    font-size: clamp(2.8rem, 7vw, 6rem);
+    font-size: clamp(2.2rem, 8vw, 5.5rem);
     font-weight: 300;
     line-height: 1.1;
     letter-spacing: -0.02em;
   }
   .display-lg {
     font-family: var(--font-serif);
-    font-size: clamp(2rem, 4vw, 3.5rem);
+    font-size: clamp(1.8rem, 5vw, 3.2rem);
     font-weight: 300;
-    line-height: 1.15;
-  }
-  .display-md {
-    font-family: var(--font-serif);
-    font-size: clamp(1.4rem, 2.5vw, 2rem);
-    font-weight: 400;
-    line-height: 1.3;
+    line-height: 1.2;
   }
   .label-mono {
     font-family: var(--font-mono);
-    font-size: clamp(0.65rem, 1.2vw, 0.75rem);
+    font-size: clamp(0.65rem, 2.5vw, 0.75rem);
     font-weight: 400;
-    letter-spacing: 0.12em;
+    letter-spacing: 0.1em;
     text-transform: uppercase;
     color: var(--col-gold);
   }
   .body-text {
-    font-size: clamp(0.9rem, 1.5vw, 1rem);
-    line-height: 1.8;
+    font-size: clamp(0.9rem, 2vw, 1.05rem);
+    line-height: 1.7;
     color: var(--col-text-2);
-    font-weight: 300;
   }
 
-  /* ===== LAYOUT ===== */
+  /* ===== MOBILE FIRST CONTAINMENT ===== */
   .container {
+    width: 100%;
     max-width: 1280px;
     margin: 0 auto;
-    padding: 0 32px;
+    padding: 0 20px;
   }
-  section { padding: 96px 0; }
+  section { padding: 48px 0; }
+  
   .section-label {
     display: flex;
     align-items: center;
-    gap: 16px;
-    margin-bottom: 48px;
+    gap: 12px;
+    margin-bottom: 24px;
   }
   .section-label::after {
     content: '';
@@ -184,326 +159,230 @@
     background: var(--col-border-md);
   }
 
-  /* ===== GLASS CARD ===== */
+  /* ===== RESPONSIVE UTILITIES ===== */
   .glass-card {
     background: var(--col-glass);
     border: 0.5px solid var(--col-border);
-    border-radius: var(--radius-lg);
+    border-radius: var(--radius-md);
     backdrop-filter: blur(12px);
-    transition: background var(--dur) var(--ease),
-                border-color var(--dur) var(--ease),
-                transform var(--dur) var(--ease),
-                box-shadow var(--dur) var(--ease);
+    transition: all var(--dur) var(--ease);
     box-shadow: var(--shadow-full);
   }
-  .glass-card:hover {
-    background: var(--col-glass-hov);
-    border-color: var(--col-border-md);
-    transform: translateY(-4px);
-    box-shadow: var(--shadow-b), var(--shadow-c), var(--shadow-d), var(--shadow-e), 0 48px 96px rgba(0,0,0,0.28);
-  }
 
-  /* ===== BUTTONS ===== */
+  /* ===== ACTION BUTTONS (Touch Target friendly >= 48px height) ===== */
   .btn {
     display: inline-flex;
     align-items: center;
+    justify-content: center;
     gap: 8px;
-    padding: 14px 28px;
+    padding: 14px 24px;
     border-radius: var(--radius-md);
     font-family: var(--font-sans);
-    font-size: 0.875rem;
+    font-size: 0.9rem;
     font-weight: 500;
     letter-spacing: 0.02em;
     transition: all var(--dur) var(--ease);
-    box-shadow: var(--shadow-full);
-    cursor: none;
+    width: 100%; /* Mobile first full-width stack */
+    min-height: 48px;
   }
-  .btn-primary {
-    background: var(--col-gold);
-    color: #0a0b0e;
-    border: 0.5px solid var(--col-gold);
-  }
-  .btn-primary:hover {
-    background: #d4b47e;
-    transform: translateY(-2px);
-    box-shadow: var(--shadow-c), var(--shadow-d), 0 0 32px rgba(201,169,110,0.25);
-  }
-  .btn-ghost {
-    background: transparent;
-    color: var(--col-text-1);
-    border: 0.5px solid var(--col-border-md);
-  }
-  .btn-ghost:hover {
-    background: var(--col-glass-hov);
-    border-color: var(--col-gold);
-    color: var(--col-gold);
-    transform: translateY(-2px);
-  }
-  .btn-teal {
-    background: var(--col-teal-dim);
-    color: var(--col-teal);
-    border: 0.5px solid rgba(62,207,176,0.25);
-  }
-  .btn-teal:hover {
-    background: rgba(62,207,176,0.2);
-    transform: translateY(-2px);
-    box-shadow: 0 0 24px rgba(62,207,176,0.15);
-  }
+  .btn-primary { background: var(--col-gold); color: #0a0b0e; border: 0.5px solid var(--col-gold); }
+  .btn-ghost { background: transparent; color: var(--col-text-1); border: 0.5px solid var(--col-border-md); }
+  .btn-teal { background: var(--col-teal-dim); color: var(--col-teal); border: 0.5px solid rgba(62,207,176,0.25); }
 
-  /* ===== DROPDOWN STYLING ===== */
-  .nav-links li { position: relative; }
-  .dropdown-menu {
-    position: absolute;
-    top: 100%; left: 50%;
-    transform: translateX(-50%) translateY(10px);
-    background: rgba(15, 17, 23, 0.95);
-    border: 0.5px solid var(--col-border-md);
-    border-radius: var(--radius-sm);
-    padding: 12px 0;
-    min-width: 220px;
-    list-style: none;
-    opacity: 0;
-    visibility: hidden;
-    transition: all 0.3s var(--ease);
-    box-shadow: var(--shadow-full);
-  }
-  .nav-links li:hover .dropdown-menu {
-    opacity: 1;
-    visibility: visible;
-    transform: translateX(-50%) translateY(0);
-  }
-  .dropdown-menu a {
-    display: block;
-    padding: 8px 20px;
-    font-size: 0.75rem !important;
-    text-align: left;
-    white-space: nowrap;
-  }
-  .dropdown-menu a:hover {
-    background: var(--col-glass-hov);
-    color: var(--col-gold) !important;
-  }
-
-  /* ===== QUICK NAVIGATION HUD ===== */
-  .path-matrix {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 16px;
-    margin-top: 32px;
-  }
-  .path-btn {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 20px;
-    background: var(--col-glass);
-    border: 0.5px solid var(--col-border);
-    border-radius: var(--radius-md);
-    transition: all var(--dur) var(--ease);
-  }
-  .path-btn:hover {
-    border-color: var(--col-gold);
-    background: var(--col-gold-glow);
-    transform: translateY(-2px);
-  }
-  .path-btn-title {
-    font-family: var(--font-mono);
-    font-size: 0.8rem;
-    font-weight: 500;
-    color: var(--col-gold);
-    margin-bottom: 4px;
-    text-transform: uppercase;
-  }
-  .path-btn-desc {
-    font-size: 0.72rem;
-    color: var(--col-text-2);
-    line-height: 1.4;
-  }
-
-  /* ===== BADGE / PILL ===== */
   .badge {
     display: inline-flex;
     align-items: center;
     gap: 6px;
-    padding: 4px 12px;
+    padding: 4px 10px;
     border-radius: 99px;
     font-family: var(--font-mono);
-    font-size: 0.7rem;
-    letter-spacing: 0.08em;
-    font-weight: 400;
+    font-size: 0.65rem;
+    letter-spacing: 0.05em;
   }
   .badge-gold { background: var(--col-gold-dim); color: var(--col-gold); border: 0.5px solid rgba(201,169,110,0.25); }
   .badge-teal { background: var(--col-teal-dim); color: var(--col-teal); border: 0.5px solid rgba(62,207,176,0.2); }
-  .badge-red  { background: rgba(224,86,86,0.12); color: var(--col-red); border: 0.5px solid rgba(224,86,86,0.2); }
-  .badge-dim  { background: rgba(255,255,255,0.05); color: var(--col-text-2); border: 0.5px solid var(--col-border); }
 
-  /* ===== STAGGER ANIMATIONS ===== */
-  .stagger-in {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity var(--dur) var(--ease), transform var(--dur) var(--ease);
-  }
+  /* ===== STAGGER SYSTEM ===== */
+  .stagger-in { opacity: 0; transform: translateY(16px); transition: opacity var(--dur) var(--ease), transform var(--dur) var(--ease); }
   .stagger-in.visible { opacity: 1; transform: translateY(0); }
 
-  /* ===== NAV ===== */
+  /* ===== INTERACTIVE MOBILE MENU COMPONENT ===== */
   nav {
     position: fixed;
     top: 0; left: 0; right: 0;
-    z-index: 500;
-    padding: 0 32px;
+    z-index: 900;
+    padding: 0 16px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    height: 72px;
-    background: rgba(10,11,14,0.85);
-    backdrop-filter: blur(20px) saturate(180%);
+    height: 64px;
+    background: rgba(10,11,14,0.92);
+    backdrop-filter: blur(20px);
     border-bottom: 0.5px solid var(--col-border);
   }
-  .nav-logo {
+  .nav-logo { display: flex; flex-direction: column; }
+  .nav-logo-title { font-family: var(--font-serif); font-size: 1.15rem; font-weight: 500; color: var(--col-gold); }
+  .nav-logo-sub { font-family: var(--font-mono); font-size: 0.55rem; letter-spacing: 0.1em; color: var(--col-text-3); text-transform: uppercase; }
+  
+  /* Mobile menu control switcher */
+  .menu-toggle {
     display: flex;
     flex-direction: column;
-    gap: 2px;
+    justify-content: space-between;
+    width: 24px; height: 18px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    z-index: 1000;
   }
-  .nav-logo-title {
-    font-family: var(--font-serif);
-    font-size: 1.25rem;
-    font-weight: 500;
-    letter-spacing: 0.05em;
-    color: var(--col-gold);
-  }
-  .nav-logo-sub {
-    font-family: var(--font-mono);
-    font-size: 0.6rem;
-    letter-spacing: 0.15em;
-    color: var(--col-text-3);
-    text-transform: uppercase;
-  }
+  .menu-toggle span { width: 100%; height: 2px; background-color: var(--col-text-1); transition: all 0.3s ease; }
+  
   .nav-links {
+    position: fixed;
+    top: 0; right: -100%;
+    width: 80%; max-width: 320px; height: 100vh;
+    background: var(--col-surface);
+    border-left: 0.5px solid var(--col-border);
+    padding: 96px 24px 32px;
     display: flex;
-    align-items: center;
-    gap: 32px;
+    flex-direction: column;
+    gap: 24px;
     list-style: none;
+    transition: right 0.4s var(--ease);
+    overflow-y: auto;
   }
-  .nav-links a {
-    font-size: 0.8rem;
-    font-weight: 400;
-    letter-spacing: 0.06em;
-    color: var(--col-text-2);
-    text-transform: uppercase;
-    transition: color var(--dur) var(--ease);
-  }
+  .nav-links.active { right: 0; }
+  .nav-links a { font-size: 0.95rem; font-weight: 400; letter-spacing: 0.06em; color: var(--col-text-2); text-transform: uppercase; display: block; }
   .nav-links a:hover { color: var(--col-gold); }
-  .nav-cta { display: flex; gap: 12px; }
+  
+  /* Dropdowns configured for mobile view touch access */
+  .mobile-submenu { list-style: none; padding-left: 16px; margin-top: 8px; display: flex; flex-direction: column; gap: 12px; }
+  .mobile-submenu a { font-size: 0.8rem !important; text-transform: none; color: var(--col-text-3); }
 
-  /* ===== HERO ===== */
+  .nav-cta-wrapper { display: none; } /* Managed internally via drawer panels on small viewports */
+
+  /* ===== HERO SECTION COMPONENT ===== */
   #hero {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
-    justify-content: flex-end;
-    padding: 128px 32px 96px;
+    justify-content: center;
+    padding: 88px 0 48px;
     position: relative;
-    overflow: hidden;
-    max-width: 1280px;
-    margin: 0 auto;
   }
   .hero-bg {
     position: absolute;
     inset: 0;
-    background:
-      radial-gradient(ellipse 80% 60% at 10% 90%, rgba(201,169,110,0.07) 0%, transparent 60%),
-      radial-gradient(ellipse 50% 50% at 90% 10%, rgba(62,207,176,0.05) 0%, transparent 55%),
-      radial-gradient(ellipse 60% 40% at 50% 50%, rgba(201,169,110,0.03) 0%, transparent 70%);
+    background: radial-gradient(circle at 50% 30%, rgba(201,169,110,0.05) 0%, transparent 70%);
     pointer-events: none;
+    z-index: -1;
   }
-  .hero-eyebrow {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-    margin-bottom: 32px;
-  }
-  .hero-dot {
-    width: 8px; height: 8px;
-    border-radius: 50%;
-    background: var(--col-teal);
-    box-shadow: 0 0 16px var(--col-teal);
-    animation: pulse 2s ease-in-out infinite;
-  }
-  @keyframes pulse {
-    0%, 100% { opacity: 1; transform: scale(1); }
-    50% { opacity: 0.5; transform: scale(0.85); }
-  }
-  .hero-title {
-    font-family: var(--font-serif);
-    font-size: clamp(3rem, 8vw, 7rem);
-    font-weight: 300;
-    line-height: 1.0;
-    letter-spacing: -0.02em;
-    margin-bottom: 24px;
-  }
+  .hero-eyebrow { display: flex; flex-direction: column; align-items: flex-start; gap: 8px; margin-bottom: 24px; }
+  .hero-dot-wrapper { display: flex; align-items: center; gap: 8px; }
+  .hero-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--col-teal); box-shadow: 0 0 12px var(--col-teal); }
+  
+  .hero-title { font-family: var(--font-serif); font-size: clamp(2rem, 7vw, 4.5rem); font-weight: 300; line-height: 1.1; margin-bottom: 16px; }
   .hero-title em { font-style: italic; color: var(--col-gold); }
-  .hero-subtitle {
-    font-size: clamp(1rem, 2vw, 1.25rem);
-    color: var(--col-text-2);
-    font-weight: 300;
-    max-width: 720px;
-    line-height: 1.7;
-    margin-bottom: 48px;
-  }
-  .hero-actions { display: flex; gap: 16px; flex-wrap: wrap; }
+  .hero-subtitle { font-size: 0.95rem; color: var(--col-text-2); max-width: 640px; margin-bottom: 32px; }
+  
+  .hero-actions { display: flex; flex-direction: column; gap: 12px; }
+  
   .hero-stats {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     gap: 1px;
     border: 0.5px solid var(--col-border);
     border-radius: var(--radius-md);
     overflow: hidden;
-    margin-top: 80px;
+    margin-top: 48px;
     background: var(--col-border);
   }
-  .hero-stat {
-    background: var(--col-surface);
-    padding: 24px;
+  .hero-stat { background: var(--col-surface); padding: 16px; display: flex; flex-direction: column; gap: 2px; }
+  .hero-stat-val { font-family: var(--font-serif); font-size: 1.4rem; color: var(--col-gold); }
+  .hero-stat-label { font-family: var(--font-mono); font-size: 0.6rem; letter-spacing: 0.05em; text-transform: uppercase; color: var(--col-text-3); }
+
+  /* ===== GRID AND HUB FLOWS ===== */
+  .path-matrix { display: grid; grid-template-columns: 1fr; gap: 12px; margin-top: 24px; }
+  .path-btn {
     display: flex;
     flex-direction: column;
-    gap: 4px;
+    padding: 16px;
+    background: var(--col-glass);
+    border: 0.5px solid var(--col-border);
+    border-radius: var(--radius-md);
+    transition: all var(--dur) var(--ease);
   }
-  .hero-stat-val {
-    font-family: var(--font-serif);
-    font-size: clamp(1.4rem, 3vw, 2rem);
-    font-weight: 400;
-    color: var(--col-gold);
+  .path-btn:active { border-color: var(--col-gold); background: var(--col-gold-glow); }
+  .path-btn-title { font-family: var(--font-mono); font-size: 0.78rem; font-weight: 500; color: var(--col-gold); margin-bottom: 4px; text-transform: uppercase; }
+  .path-btn-desc { font-size: 0.75rem; color: var(--col-text-2); line-height: 1.4; }
+
+  /* ===== ACCORDION SYSTEM FOR DATA COMPLIANCE (Q&A INTEGRATION) ===== */
+  .qa-section { background: var(--col-surface); border-top: 0.5px solid var(--col-border); border-bottom: 0.5px solid var(--col-border); }
+  .accordion-wrapper { display: flex; flex-direction: column; gap: 8px; margin-top: 24px; }
+  .accordion-item { border: 0.5px solid var(--col-border); border-radius: var(--radius-sm); background: rgba(255,255,255,0.02); overflow: hidden; }
+  .accordion-trigger {
+    width: 100%; padding: 16px; background: transparent; border: none; text-align: left;
+    color: var(--col-text-1); font-family: var(--font-sans); font-size: 0.9rem; font-weight: 500;
+    display: flex; justify-content: space-between; align-items: center; gap: 12px; cursor: pointer;
   }
-  .hero-stat-label {
-    font-family: var(--font-mono);
-    font-size: 0.65rem;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--col-text-3);
+  .accordion-icon { font-size: 0.8rem; color: var(--col-gold); transition: transform 0.3s ease; }
+  .accordion-content { max-height: 0; overflow: hidden; transition: max-height 0.3s ease; background: rgba(0,0,0,0.15); }
+  .accordion-content p { padding: 16px; font-size: 0.85rem; color: var(--col-text-2); line-height: 1.5; border-top: 0.5px solid var(--col-border); }
+  
+  .accordion-item.active .accordion-content { max-height: 200px; }
+  .accordion-item.active .accordion-icon { transform: rotate(180deg); }
+
+  /* ===== TABLET AND LAPTOP DESIGN LIFTS (Breakpoints) ===== */
+  @media (min-width: 576px) {
+    .hero-actions { flex-direction: row; }
+    .hero-actions .btn { width: auto; flex: 1; }
+    .path-matrix { grid-template-columns: repeat(2, 1fr); gap: 16px; }
   }
 
-  /* ===== RESPONSIVE DIAGRAMS ===== */
-  @media (max-width: 1024px) {
-    .path-matrix { grid-template-columns: repeat(2, 1fr); }
-    .hero-stats { grid-template-columns: repeat(2, 1fr); }
-  }
-  @media (max-width: 768px) {
-    nav { padding: 0 16px; }
-    .nav-links { display: none; }
-    .path-matrix { grid-template-columns: 1fr; }
-    body { cursor: auto; }
-    #cursor { display: none; }
+  @media (min-width: 992px) {
+    html { font-size: 16px; }
+    body { cursor: none; }
+    #cursor { display: block; position: fixed; width: 24px; height: 24px; border: 1.5px solid var(--col-gold); border-radius: 50%; pointer-events: none; z-index: 9999; transform: translate(-50%, -50%); transition: width var(--dur) var(--ease), height var(--dur) var(--ease), border-color var(--dur) var(--ease); mix-blend-mode: screen; }
+    #cursor.hover { width: 48px; height: 48px; border-color: var(--col-teal); }
+    
+    nav { padding: 0 40px; height: 72px; }
+    .menu-toggle { display: none; }
+    .nav-links { position: static; width: auto; height: auto; background: transparent; border: none; padding: 0; flex-direction: row; gap: 32px; overflow-y: visible; }
+    .mobile-submenu { display: none; } /* Desktop uses core cascading navigation mappings */
+    .nav-cta-wrapper { display: flex; align-items: center; gap: 12px; }
+    .nav-cta-wrapper .btn { width: auto; min-height: 40px; padding: 8px 16px; font-size: 0.8rem; }
+    
+    #hero { padding: 140px 0 80px; }
+    .hero-eyebrow { flex-direction: row; align-items: center; justify-content: space-between; width: 100%; margin-bottom: 32px; }
+    .hero-title { font-size: 5rem; line-height: 1.05; }
+    .hero-actions { width: max-content; }
+    .hero-stats { grid-template-columns: repeat(4, 1fr); margin-top: 64px; }
+    
+    .path-matrix { grid-template-columns: repeat(4, 1fr); }
+    .path-btn:hover { border-color: var(--col-gold); background: var(--col-gold-glow); transform: translateY(-2px); }
   }
 
-  /* SVG icon helper */
-  .icon {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 16px;
-    height: 16px;
-    flex-shrink: 0;
+  /* ===== FOOTER ARCHITECTURE ===== */
+  footer { background: #0a0b0e; border-top: 0.5px solid var(--col-border); padding: 48px 0 24px; }
+  .footer-grid { display: grid; grid-template-columns: 1fr; gap: 32px; margin-bottom: 32px; }
+  .footer-col-title { font-size: 0.85rem; font-weight: 500; text-transform: uppercase; color: var(--col-gold); margin-bottom: 16px; letter-spacing: 0.05em; }
+  .footer-links { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+  .footer-links a { font-size: 0.85rem; color: var(--col-text-2); transition: color 0.2s ease; }
+  .footer-links a:hover { color: var(--col-gold); }
+  
+  .footer-bottom { border-top: 0.5px solid var(--col-border); padding-top: 20px; display: flex; flex-direction: column; gap: 16px; align-items: center; text-align: center; }
+  .footer-tags { display: flex; gap: 6px; flex-wrap: wrap; justify-content: center; }
+  .footer-tags span { background: rgba(255,255,255,0.04); color: var(--col-text-2); border: 0.5px solid var(--col-border); padding: 2px 8px; border-radius: 12px; font-size: 0.6rem; font-family: var(--font-mono); }
+
+  @media (min-width: 768px) {
+    .footer-grid { grid-template-columns: repeat(2, 1fr); }
+    .footer-bottom { flex-direction: row; justify-content: space-between; text-align: left; }
   }
+  @media (min-width: 992px) {
+    .footer-grid { grid-template-columns: 2fr repeat(3, 1fr); }
+  }
+
+  .icon { display: inline-flex; align-items: center; justify-content: center; width: 16px; height: 16px; flex-shrink: 0; }
 </style>
 </head>
 <body>
@@ -514,247 +393,216 @@
 <nav>
   <div class="nav-logo">
     <span class="nav-logo-title">IPR-CAD</span>
-    <span class="nav-logo-sub">Scientia-Naturalis.org · Est. 2019</span>
+    <span class="nav-logo-sub">Scientia-Naturalis.org</span>
   </div>
-  <ul class="nav-links">
+  
+  <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation menu">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+
+  <ul class="nav-links" id="navLinks">
     <li><a href="about.html">About</a></li>
     <li>
-      <a href="#">Announcements ▾</a>
-      <ul class="dropdown-menu">
+      <a href="#">Announcements</a>
+      <ul class="mobile-submenu">
         <li><a href="news.html">Latest News</a></li>
         <li><a href="keynote-announced.html">Keynote Speakers</a></li>
-        <li><a href="advisory-board-expanded.html">Advisory Board</a></li>
       </ul>
     </li>
     <li>
-      <a href="#">Resources ▾</a>
-      <ul class="dropdown-menu">
-        <li><a href="conference-proceedings.html">Conference Proceedings</a></li>
-        <li><a href="conference-resources.html">Academic Resources</a></li>
-        <li><a href="conference-reviews.html">Conference Reviews</a></li>
-        <li><a href="faq.html">FAQ Cluster</a></li>
-        
+      <a href="#">Resources</a>
+      <ul class="mobile-submenu">
+        <li><a href="conference-proceedings.html">Proceedings</a></li>
+        <li><a href="faq.html">FAQ Helpdesk</a></li>
       </ul>
     </li>
-    <li><a href="registration-open.html" style="color: var(--col-teal);">Registration Open</a></li>
+    <li><a href="registration-open.html" style="color: var(--col-teal);">Registration Active</a></li>
   </ul>
-  <div class="nav-cta">
-    <a href="registration-open.html" class="btn btn-ghost" style="padding: 10px 20px; font-size: 0.8rem;">
-      <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="m22 21-3-3m0 0a4 4 0 1 0-5.657-5.657A4 4 0 0 0 19 18z"/></svg> Portal
-    </a>
-    <a href="registration-open.html" class="btn btn-primary" style="padding: 10px 20px; font-size: 0.8rem;">
-      <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 8v8M8 12h8"/></svg> Register Now
-    </a>
+
+  <div class="nav-cta-wrapper">
+    <a href="registration-open.html" class="btn btn-ghost"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="9" cy="7" r="4"/><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/></svg> Portal</a>
+    <a href="registration-open.html" class="btn btn-primary">Register</a>
   </div>
 </nav>
 
-<section style="padding: 0;">
-  <div id="hero">
+<main class="container">
+  <section id="hero">
     <div class="hero-bg"></div>
     <div class="hero-eyebrow stagger-in">
-      <div class="hero-dot"></div>
-      <span class="label-mono">2026 · Edition VII · Hybrid · Open Access</span>
-      <div class="badge badge-teal">Registration & Submissions Active</div>
+      <div class="hero-dot-wrapper">
+        <div class="hero-dot"></div>
+        <span class="label-mono">Edition VII · Hybrid · Open Access</span>
+      </div>
+      <div class="badge badge-teal" style="margin-top: 4px;">Submissions Open</div>
     </div>
-    <h1 class="hero-title stagger-in" style="transition-delay: 100ms;">
-      IPRs, <em>Climate</em><br> Action &amp; the<br> <em>Doha</em> Declaration
+    
+    <h1 class="hero-title stagger-in" style="transition-delay: 60ms;">
+      IPRs, <em>Climate</em><br> Action &amp; the<br> <em>Doha</em> Paradigm
     </h1>
-    <p class="hero-subtitle stagger-in" style="transition-delay: 200ms;">
-      The International Scientific Conference on Intellectual Property Rights, Climate Action, and the Doha Declaration Paradigm. Hosted in partnership with the Berlin University Alliance bibliothek (Kleine Präsidentenstraße 1, 10178 Berlin, Germany) and fully optimized for worldwide remote participation. Proceedings carry DOI, ISBN, ISSN, ORCID, and ROR-certified academic credentials.
-    </p>
-    <div class="hero-actions stagger-in" style="transition-delay: 300ms;">
-      <a href="registration-open.html" class="btn btn-primary">
-        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg> Submit Abstract &amp; Register
-      </a>
-      <a href="conference-proceedings.html" class="btn btn-ghost">
-        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg> Index Metadata
-      </a>
-      <a href="conference-resources.html" class="btn btn-teal">
-        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg> PID Resources
-      </a>
-    </div>
-
-    <div class="hero-stats stagger-in" style="transition-delay: 400ms;">
-      <div class="hero-stat">
-        <span class="hero-stat-val">120</span>
-        <span class="hero-stat-label">Expert Reviewers</span>
-      </div>
-      <div class="hero-stat">
-        <span class="hero-stat-val">VII</span>
-        <span class="hero-stat-label">Editions Since 2019</span>
-      </div>
-      <div class="hero-stat">
-        <span class="hero-stat-val">DOI</span>
-        <span class="hero-stat-label">Every Submission</span>
-      </div>
-      <div class="hero-stat">
-        <span class="hero-stat-val">W3C</span>
-        <span class="hero-stat-label">Verifiable Credentials</span>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section style="background: var(--col-surface); border-top: 0.5px solid var(--col-border); border-bottom: 0.5px solid var(--col-border);">
-  <div class="container">
-    <div class="section-label">
-      <span class="label-mono">Platform Navigation Hub &amp; Gateways</span>
-    </div>
-    <p class="body-text" style="margin-bottom: 32px; max-width: 800px;">
-      Access independent directories and decentralized sections of the IPR-CAD Ecosystem. These modules manage indexing validation, real-time registration frameworks, board extensions, and scholarly assets.
+    
+    <p class="hero-subtitle stagger-in" style="transition-delay: 120ms;">
+      The International Scientific Conference on Intellectual Property Rights, Climate Action, and the Doha Declaration Paradigm. Hosted in partnership with Berlin University Alliance bibliothek and fully optimized for seamless remote participation.
     </p>
     
+    <div class="hero-actions stagger-in" style="transition-delay: 180ms;">
+      <a href="registration-open.html" class="btn btn-primary">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg> Submit Abstract
+      </a>
+      <a href="conference-proceedings.html" class="btn btn-ghost">Index Metadata</a>
+    </div>
+
+    <div class="hero-stats stagger-in" style="transition-delay: 240ms;">
+      <div class="hero-stat"><span class="hero-stat-val">120</span><span class="hero-stat-label">Reviewers</span></div>
+      <div class="hero-stat"><span class="hero-stat-val">VII</span><span class="hero-stat-label">Editions</span></div>
+      <div class="hero-stat"><span class="hero-stat-val">DOI</span><span class="hero-stat-label">Crossref</span></div>
+      <div class="hero-stat"><span class="hero-stat-val">W3C</span><span class="hero-stat-label">Credentials</span></div>
+    </div>
+  </section>
+
+  <section style="border-top: 0.5px solid var(--col-border);">
+    <div class="section-label">
+      <span class="label-mono">Decentralized Platform Paths</span>
+    </div>
     <div class="path-matrix">
       <a href="news.html" class="path-btn">
         <span class="path-btn-title">1. News Hub ↗</span>
-        <span class="path-btn-desc">Latest scheduling updates, processing benchmarks, and press announcements.</span>
+        <span class="path-btn-desc">Latest scheduling processing updates and statements.</span>
       </a>
-      
       <a href="registration-open.html" class="path-btn" style="border-color: rgba(62,207,176,0.3);">
-        <span class="path-btn-title" style="color: var(--col-teal);">2. Registration Open ↗</span>
-        <span class="path-btn-desc">Secure gate for PhD students and senior researchers. Abstract upload portal.</span>
+        <span class="path-btn-title" style="color: var(--col-teal);">2. Registration ↗</span>
+        <span class="path-btn-desc">Secure abstract upload portal for active researchers.</span>
       </a>
-      
-      <a href="keynote-announced.html" class="path-btn">
-        <span class="path-btn-title">3. Keynote Announced ↗</span>
-        <span class="path-btn-desc">Profiles of international practitioners bridging regulatory gaps and climate science.</span>
-      </a>
-      
-      <a href="advisory-board-expanded.html" class="path-btn">
-        <span class="path-btn-title">4. Advisory Board ↗</span>
-        <span class="path-btn-desc">Global steering committee, evaluation profiles, and governance specialists.</span>
-      </a>
-      
-      <a href="about.html" class="path-btn">
-        <span class="path-btn-title">5. About IPR-CAD ↗</span>
-        <span class="path-btn-desc">Doha Declaration structural paradigm, historical metrics, and compliance framework.</span>
-      </a>
-      
       <a href="conference-proceedings.html" class="path-btn">
-        <span class="path-btn-title">6. Proceedings ↗</span>
-        <span class="path-btn-desc">Peer-reviewed volumes certified with Crossref DOIs, ROR identifiers, and ISBN data.</span>
+        <span class="path-btn-title">3. Proceedings ↗</span>
+        <span class="path-btn-desc">Volumes certified with Crossref DOIs and ISBN catalogs.</span>
       </a>
-      
-      <a href="conference-resources.html" class="path-btn">
-        <span class="path-btn-title">7. Resources ↗</span>
-        <span class="path-btn-desc">Machine-readable templates, FAO Knowledge repositories, OpenAir EU repostories and LLM-indexing manifests.</span>
-      </a>
-      
       <a href="faq.html" class="path-btn">
-        <span class="path-btn-title">8. FAQ Directory ↗</span>
-        <span class="path-btn-desc">Explanatory workflows regarding metadata structures, double-blind checks, and remote tools.</span>
+        <span class="path-btn-title">4. FAQ Helpdesk ↗</span>
+        <span class="path-btn-desc">Explaining workflows regarding metadata validation systems.</span>
       </a>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- ===== FOOTER ===== -->
-<footer style="background: #0a0b0e; border-top: 0.5px solid rgba(255, 255, 255, 0.08); padding: 64px 32px 32px; font-family: 'Outfit', sans-serif;">
-  
-  <!-- Grid Wrapper -->
-  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 40px; max-width: 1280px; margin: 0 auto 48px;">
-    
-    <!-- Column 1 -->
-    <div>
-      <div style="font-family: 'Cormorant Garamond', Georgia, serif; font-size: 1.3rem; color: #c9a96e; margin-bottom: 16px;">Scientia-Naturalis.org</div>
-      <p style="font-size: 0.85rem; color: #9a9590; line-height: 1.6; margin-bottom: 16px;">
-        High-stakes academic engineering bridging the gap between scientific investigation, regulatory structures, and market deployment. Located in Berlin, Germany.
-      </p>
-      <div style="display: inline-flex; background: rgba(255,255,255,0.05); border: 0.5px solid rgba(255,255,255,0.08); padding: 4px 12px; border-radius: 4px; font-family: monospace; font-size: 0.75rem; color: #9a9590;">
-        <span style="color: #c9a96e; margin-right: 8px; font-weight: bold;">ROR</span> https://ror.org/XXXX-XXXX
+  <section class="qa-section glass-card" style="padding: 24px; margin-bottom: 48px;">
+    <div class="section-label">
+      <span class="label-mono">Scholarly Ecosystem Quick Reference</span>
+    </div>
+    <div class="accordion-wrapper">
+      <div class="accordion-item">
+        <button class="accordion-trigger">
+          <span>Registration Pricing Policies</span>
+          <span class="accordion-icon">▼</span>
+        </button>
+        <div class="accordion-content">
+          <p>Fully subsidized; participation is free of charge for verified global scientific researchers.</p>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <button class="accordion-trigger">
+          <span>Travel &amp; Schengen Visa Controls</span>
+          <span class="accordion-icon">▼</span>
+        </button>
+        <div class="accordion-content">
+          <p>None required. The entire session track engine is optimized for 100% remote asynchronous engagement.</p>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <button class="accordion-trigger">
+          <span>Direct Academic Value Assets</span>
+          <span class="accordion-icon">▼</span>
+        </button>
+        <div class="accordion-content">
+          <p>Provides persistent digital object identifiers (DOIs), Crossref linkage, and automated ORCID tracking metrics.</p>
+        </div>
       </div>
     </div>
+  </section>
+</main>
 
-    <!-- Column 2 -->
-    <div>
-      <div style="font-size: 0.8rem; font-weight: 500; text-transform: uppercase; color: #c9a96e; margin-bottom: 20px; letter-spacing: 0.08em;">Navigation Paths</div>
-      <ul style="list-style: none; padding: 0; margin: 0;">
-        <li style="margin-bottom: 10px;"><a href="about.html" style="font-size: 0.85rem; color: #9a9590; text-decoration: none; transition: color 0.2s;">About Portal</a></li>
-        <li style="margin-bottom: 10px;"><a href="registration-open.html" style="font-size: 0.85rem; color: #9a9590; text-decoration: none; transition: color 0.2s;">Registration Engine</a></li>
-        <li style="margin-bottom: 10px;"><a href="news.html" style="font-size: 0.85rem; color: #9a9590; text-decoration: none; transition: color 0.2s;">News Directory</a></li>
-        <li style="margin-bottom: 10px;"><a href="faq.html" style="font-size: 0.85rem; color: #9a9590; text-decoration: none; transition: color 0.2s;">FAQ Helpdesk</a></li>
-        <li style="margin-bottom: 10px;"><a href="faq.html" style="font-size: 0.85rem; color: #9a9590; text-decoration: none; transition: color 0.2s;">Conference Reviews</a></li>
-      </ul>
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div style="font-family: var(--font-serif); font-size: 1.25rem; color: var(--col-gold); margin-bottom: 12px;">Scientia-Naturalis.org</div>
+        <p style="font-size: 0.8rem; color: var(--col-text-2); line-height: 1.5;">High-stakes knowledge arbitrage advisory bridging laboratory discovery parameters with active EU regulatory frameworks.</p>
+      </div>
+      <div>
+        <div class="footer-col-title">Navigation Links</div>
+        <ul class="footer-links">
+          <li><a href="about.html">About Portal</a></li>
+          <li><a href="registration-open.html">Registration</a></li>
+          <li><a href="faq.html">FAQ Helpdesk</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Scholarly PIDs</div>
+        <ul class="footer-links">
+          <li><a href="#">ORCID Registry</a></li>
+          <li><a href="#">Crossref DOI</a></li>
+          <li><a href="#">ROR Institutional Identification</a></li>
+        </ul>
+      </div>
     </div>
-
-    <!-- Column 3 -->
-    <div>
-      <div style="font-size: 0.8rem; font-weight: 500; text-transform: uppercase; color: #c9a96e; margin-bottom: 20px; letter-spacing: 0.08em;">Announcements</div>
-      <ul style="list-style: none; padding: 0; margin: 0;">
-        <li style="margin-bottom: 10px;"><a href="keynote-announced.html" style="font-size: 0.85rem; color: #9a9590; text-decoration: none; transition: color 0.2s;">Keynote Speakers</a></li>
-        <li style="margin-bottom: 10px;"><a href="advisory-board-expanded.html" style="font-size: 0.85rem; color: #9a9590; text-decoration: none; transition: color 0.2s;">Advisory Expansion</a></li>
-        <li style="margin-bottom: 10px;"><a href="conference-proceedings.html" style="font-size: 0.85rem; color: #9a9590; text-decoration: none; transition: color 0.2s;">Proceedings Index</a></li>
-        <li style="margin-bottom: 10px;"><a href="conference-resources.html" style="font-size: 0.85rem; color: #9a9590; text-decoration: none; transition: color 0.2s;">Resource Repositories</a></li>
-      </ul>
-    </div>
-
-    <!-- Column 4 -->
-    <div>
-      <div style="font-size: 0.8rem; font-weight: 500; text-transform: uppercase; color: #c9a96e; margin-bottom: 20px; letter-spacing: 0.08em;">Indexing Compliance</div>
-      <ul style="list-style: none; padding: 0; margin: 0;">
-        <li style="margin-bottom: 10px;"><a href="#" style="font-size: 0.85rem; color: #9a9590; text-decoration: none;">ORCID API Validator</a></li>
-        <li style="margin-bottom: 10px;"><a href="#" style="font-size: 0.85rem; color: #9a9590; text-decoration: none;">Crossref DOI Registry</a></li>
-        <li style="margin-bottom: 10px;"><a href="#" style="font-size: 0.85rem; color: #9a9590; text-decoration: none;">W3C VC Verification</a></li>
-        <li style="margin-bottom: 10px;"><a href="#" style="font-size: 0.85rem; color: #9a9590; text-decoration: none;">ISSN/ISBN Catalog</a></li>
-      </ul>
-    </div>
-
-  </div>
-
-  <!-- Bottom Bar -->
-  <div style="border-top: 0.5px solid rgba(255, 255, 255, 0.08); padding-top: 24px; max-width: 1280px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px;">
-    <span style="font-size: 0.75rem; color: #5a5650;">© 2026 Scientia-Naturalis.org. Developed for high-impact knowledge arbitrage. All rights reserved.</span>
-    <div style="display: flex; gap: 8px;">
-      <span style="background: rgba(255,255,255,0.05); color: #9a9590; border: 0.5px solid rgba(255,255,255,0.08); padding: 2px 8px; border-radius: 12px; font-size: 0.65rem; font-family: monospace;">DOI</span>
-      <span style="background: rgba(255,255,255,0.05); color: #9a9590; border: 0.5px solid rgba(255,255,255,0.08); padding: 2px 8px; border-radius: 12px; font-size: 0.65rem; font-family: monospace;">ORCID</span>
-      <span style="background: rgba(255,255,255,0.05); color: #9a9590; border: 0.5px solid rgba(255,255,255,0.08); padding: 2px 8px; border-radius: 12px; font-size: 0.65rem; font-family: monospace;">ROR</span>
-      <span style="background: rgba(255,255,255,0.05); color: #9a9590; border: 0.5px solid rgba(255,255,255,0.08); padding: 2px 8px; border-radius: 12px; font-size: 0.65rem; font-family: monospace;">W3C VC</span>
+    <div class="footer-bottom">
+      <span style="font-size: 0.7rem; color: var(--col-text-3);">© 2026 Scientia-Naturalis.org. Optimized for multi-device viewports.</span>
+      <div class="footer-tags">
+        <span>DOI</span><span>ORCID</span><span>ROR</span><span>W3C VC</span>
+      </div>
     </div>
   </div>
-
 </footer>
+
 <script>
-// ===== CURSOR =====
-const cursor = document.getElementById('cursor');
-document.addEventListener('mousemove', e => {
-  cursor.style.left = e.clientX + 'px';
-  cursor.style.top = e.clientY + 'px';
-});
-document.querySelectorAll('a, button, input, select, textarea, .path-btn').forEach(el => {
-  el.addEventListener('mouseenter', () => cursor.classList.add('hover'));
-  el.addEventListener('mouseleave', () => cursor.classList.remove('hover'));
-});
-
-// ===== STAGGER ANIMATION =====
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('visible');
-      observer.unobserve(entry.target);
-    }
+  // Mobile drawer toggle controller
+  const menuToggle = document.getElementById('menuToggle');
+  const navLinks = document.getElementById('navLinks');
+  
+  menuToggle.addEventListener('click', () => {
+    navLinks.classList.toggle('active');
+    // Basic structural visual state alteration on execution
+    const spans = menuToggle.querySelectorAll('span');
+    spans.forEach(span => span.style.backgroundColor = navLinks.classList.contains('active') ? 'var(--col-gold)' : 'var(--col-text-1)');
   });
-}, { threshold: 0.1 });
 
-document.querySelectorAll('.stagger-in').forEach((el, i) => {
-  observer.observe(el);
-});
-
-// Trigger hero elements on load
-setTimeout(() => {
-  document.querySelectorAll('#hero .stagger-in').forEach(el => {
-    el.classList.add('visible');
+  // Accordion interactions for localized device configurations
+  document.querySelectorAll('.accordion-trigger').forEach(trigger => {
+    trigger.addEventListener('click', () => {
+      const item = trigger.closest('.accordion-item');
+      const isActive = item.classList.contains('active');
+      
+      document.querySelectorAll('.accordion-item').forEach(el => el.classList.remove('active'));
+      if (!isActive) {
+        item.classList.add('active');
+      }
+    });
   });
-}, 100);
 
-// ===== NAV SCROLL STYLE =====
-window.addEventListener('scroll', () => {
-  const nav = document.querySelector('nav');
-  if (window.scrollY > 40) {
-    nav.style.borderBottomColor = 'rgba(255,255,255,0.12)';
-  } else {
-    nav.style.borderBottomColor = 'rgba(255,255,255,0.08)';
+  // Stagger loading configuration matrix
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.05 });
+
+  document.querySelectorAll('.stagger-in').forEach(el => observer.observe(el));
+
+  // Desktop structural interaction loops (Bypassed if modern screen parameters reflect handheld/touch configurations)
+  if (window.matchMedia('(min-width: 992px)').matches) {
+    const cursor = document.getElementById('cursor');
+    document.addEventListener('mousemove', e => {
+      cursor.style.left = e.clientX + 'px';
+      cursor.style.top = e.clientY + 'px';
+    });
+    document.querySelectorAll('a, button, .path-btn, .accordion-trigger').forEach(el => {
+      el.addEventListener('mouseenter', () => cursor.classList.add('hover'));
+      el.addEventListener('mouseleave', () => cursor.classList.remove('hover'));
+    });
   }
-});
 </script>
 </body>
 </html>
