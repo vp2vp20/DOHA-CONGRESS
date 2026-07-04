@@ -1,5 +1,6 @@
 User-agent: *
-Allow: /
+Allow: /news.html
+Allow: /advisory-board-expanded.html
+Allow: /faq.html
 Disallow: /assets/pdf/private-drafts/
-
-Sitemap: https://www.icrad-conference.org/sitemap.xml
+Sitemap: https://ipr-cad.scientia-naturalis.org/sitemap.xml
