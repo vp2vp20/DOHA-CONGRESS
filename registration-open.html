@@ -183,7 +183,7 @@
     <li><a href="registration-open.html" style="color: var(--col-teal);">Registration Open</a></li>
   </ul>
   <div>
-    <a href="index.html" class="btn-primary" style="padding: 10px 20px; font-size: 0.8rem; border-radius:8px; font-weight:500;">← Main Website</a>
+    <a href="index.html" class="btn-primary" style="padding: 10px 20px; font-size: 0.8rem; border-radius:8px; font-weight:500; color:#0a0b0e;">← Main Website</a>
   </div>
 </nav>
 
@@ -218,35 +218,36 @@
 
     <div class="portal-panel">
       <h2 style="font-family: var(--font-serif); font-size: 1.8rem; font-weight: 400; margin-bottom: 32px; color: var(--col-gold);">Registration Portal</h2>
-      <form action="#" method="POST" onsubmit="event.preventDefault(); alert('Submission engine ready! Independent module connected.');">
+      
+      <form action="https://docs.google.com/forms/d/e/1FAIpQLSfrjqFWusSThX1n_d_oAZs06P5fDwi09WT523Q_ytiF_i7R9A/formResponse" method="POST">
         
         <div class="form-group">
           <label for="reg-name">Full Scholarly Name</label>
-          <input type="text" id="reg-name" class="form-control" placeholder="Prof. Dr. Alex Person" required>
+          <input type="text" id="reg-name" name="entry.1030776735" class="form-control" placeholder="Prof. Dr. Alex Person" required>
         </div>
 
         <div class="form-group">
           <label for="reg-email">Institutional Email Address</label>
-          <input type="email" id="reg-email" class="form-control" placeholder="username@university.edu" required>
+          <input type="email" id="reg-email" name="entry.1497259648" class="form-control" placeholder="username@university.edu" required>
         </div>
 
         <div class="form-group">
           <label for="reg-orcid">ORCID iD Reference</label>
-          <input type="text" id="reg-orcid" class="form-control" placeholder="0000-0000-0000-0000" required>
+          <input type="text" id="reg-orcid" name="entry.73560667" class="form-control" placeholder="0000-0000-0000-0000" required>
         </div>
 
         <div class="form-group">
           <label for="reg-track">Primary Academic Track</label>
-          <select id="reg-track" class="form-control" style="background: #141721; cursor: pointer;">
-            <option value="ipr">Intellectual Property &amp; Regulatory Frameworks</option>
-            <option value="climate">Climate Action &amp; Environmental Metrics</option>
-            <option value="doha">Doha Declaration System Analysis</option>
+          <select id="reg-track" name="entry.1017415254" class="form-control" style="background: #141721; cursor: pointer;">
+            <option value="Intellectual Property &amp; Regulatory Frameworks">Intellectual Property &amp; Regulatory Frameworks</option>
+            <option value="Climate Action &amp; Environmental Metrics">Climate Action &amp; Environmental Metrics</option>
+            <option value="Doha Declaration System Analysis">Doha Declaration System Analysis</option>
           </select>
         </div>
 
         <div class="form-group" style="margin-bottom: 32px;">
           <label for="reg-abstract">Abstract Draft / Project Overview (Optional)</label>
-          <textarea id="reg-abstract" class="form-control" rows="4" placeholder="Paste your abstract draft here for peer-review queuing..."></textarea>
+          <textarea id="reg-abstract" name="entry.1989471569" class="form-control" rows="4" placeholder="Paste your abstract draft here for peer-review queuing..."></textarea>
         </div>
 
         <button type="submit" class="btn btn-primary">Process Academic Registration ↗</button>
@@ -314,50 +315,3 @@
 </script>
 </body>
 </html>
-User-agent: *
-Allow: /
-Allow: /index.html
-Allow: /registration-open.html
-Allow: /about.html
-Allow: /news.html
-Allow: /keynote-announced.html
-Allow: /advisory-board-expanded.html
-Allow: /conference-proceedings.html
-Allow: /conference-resources.html
-Allow: /faq.html
-
-# Discoverability of Feeds & Sitemaps
-Sitemap: https://ipr-cad.scientia-naturalis.org/sitemap.xml
-<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>https://ipr-cad.scientia-naturalis.org/</loc>
-    <lastmod>2026-07-01</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>1.00</priority>
-  </url>
-  <url>
-    <loc>https://ipr-cad.scientia-naturalis.org/registration-open.html</loc>
-    <lastmod>2026-07-01</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.90</priority>
-  </url>
-</urlset>
-<?xml version="1.0" encoding="UTF-8" ?>
-<rss version="2.0">
-<channel>
-  <title>IPR-CAD VII Conference Track Feeds</title>
-  <link>https://ipr-cad.scientia-naturalis.org</link>
-  <description>Real-time notifications regarding peer-review deadlines, metadata indexation verification, and advisory extensions.</description>
-  <language>en-us</language>
-  <pubDate>Wed, 01 Jul 2026 00:00:00 GMT</pubDate>
-  <lastBuildDate>Wed, 01 Jul 2026 00:00:00 GMT</lastBuildDate>
-  
-  <item>
-    <title>Registration Phase Active &amp; Portal Operational</title>
-    <link>https://ipr-cad.scientia-naturalis.org/registration-open.html</link>
-    <description>The digital entry portal for ORCID-validated abstract submission is officially live.</description>
-    <pubDate>Wed, 01 Jul 2026 00:00:00 GMT</pubDate>
-  </item>
-</channel>
-</rss>
